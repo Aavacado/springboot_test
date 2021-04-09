@@ -78,7 +78,7 @@ public class PostLogger {
 			while (line != null) {
 				String trimmedLine = line.trim();
 				String toDeleteTrimmed = toDelete.trim();
-				if (line.isEmpty() || !toDeleteTrimmed.equals(trimmedLine)) {
+                if (line.isEmpty() || !toDeleteTrimmed.equals(trimmedLine)) {
 					r2.write(line+System.lineSeparator());
                 }
 				else delete = true;
@@ -86,8 +86,8 @@ public class PostLogger {
 			}
 			r1.close();  r2.close();
 			fr1.close(); fr2.close();
-			Files.move(Paths.get(tmpPath), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
-			return delete;
+            Files.move(Paths.get(tmpPath), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+            return delete;
     	} catch (IOException e) {
 			e.printStackTrace();
             return false;
